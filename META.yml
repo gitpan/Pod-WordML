@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Pod-WordML
-version:            0.12
+version:            0.13
 abstract:           Convert Pod to Microsoft's WordML format
 author:
     - brian d foy <bdfoy@cpan.org>

@@ -8,7 +8,7 @@ no warnings;
 use subs qw();
 use vars qw($VERSION);
 
-$VERSION = '0.12';
+$VERSION = '0.13';
 
 =head1 NAME
 
@@ -2566,8 +2566,10 @@ Like C<bullet_para_style>, but for paragraphs under C<=item>.
 
 =cut
 
-sub bullet_para_style   { 'BulletParagraphStyle' }
-sub bullet_item_style   { 'ListBullet' }
+sub first_item_para_style     { 'BL1' }
+sub item_para_style           { 'BL' }
+sub last_item_para_style      { 'BLX' }
+sub item_subpara_style        { 'BodyNoIndent' }
 
 =item inline_code_style
 
