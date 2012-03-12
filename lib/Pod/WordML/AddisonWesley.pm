@@ -8,7 +8,7 @@ no warnings;
 use subs qw();
 use vars qw($VERSION);
 
-$VERSION = '0.13';
+$VERSION = '0.14';
 
 =head1 NAME
 
@@ -593,7 +593,7 @@ sub styles
         <w:tab w:val="left" w:pos="720" />
       </w:tabs>
       <w:spacing w:after="60" w:line="220" w:line-rule="at-least" />
-      <w:ind w:left="720" w:right="720" w:hanging="720" />
+      <w:ind w:left="1200" w:right="720" w:hanging="720" />
     </w:pPr>
     <w:rPr>
       <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" />
@@ -2566,9 +2566,9 @@ Like C<bullet_para_style>, but for paragraphs under C<=item>.
 
 =cut
 
-sub first_item_para_style     { 'BL1' }
-sub item_para_style           { 'BL' }
-sub last_item_para_style      { 'BLX' }
+sub first_item_para_style     { 'BL1'          }
+sub middle_item_para_style    { 'BL'           }
+sub last_item_para_style      { 'BLX'          }
 sub item_subpara_style        { 'BodyNoIndent' }
 
 =item inline_code_style

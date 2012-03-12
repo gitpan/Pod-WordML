@@ -10,7 +10,7 @@ use vars qw($VERSION);
 
 use Carp;
 
-$VERSION = '0.13';
+$VERSION = '0.14';
 
 =head1 NAME
 
@@ -109,10 +109,10 @@ sections.
 
 =cut
 
-sub first_item_para_style     { 'FirstItemParagraphStyle' }
+sub first_item_para_style     { 'FirstItemParagraphStyle'  }
 sub middle_item_para_style    { 'MiddleItemParagraphStyle' }
-sub last_item_para_style      { 'LastItemParagraphStyle' }
-sub item_subpara_style        { 'ItemSubParagraphStyle' }
+sub last_item_para_style      { 'LastItemParagraphStyle'   }
+sub item_subpara_style        { 'ItemSubParagraphStyle'    }
 
 =item code_paragraph_style
 
@@ -176,7 +176,7 @@ sub emit
 sub get_pad
 	{
 	# flow elements first
-	   if( $_[0]{module_flag}   ) { 'module_text'   }
+	   if( $_[0]{module_flag}   ) { 'scratch'   }
 	elsif( $_[0]{url_flag}      ) { 'url_text'      }
 	# then block elements
 	# finally the default
@@ -318,6 +318,8 @@ qq|  <w:p>
     <w:r>
       <w:t>|;
 	
+	$self->{'scratch'} .= "\x{25FE} " if $self->{in_item};
+		
 	$self->emit;
 	
 	$self->{'in_para'} = 1; 
@@ -506,24 +508,23 @@ sub start_B
 	}
 
 sub inline_code_char_style { 'Code' }
-sub end_C   
-	{ 
-	$_[0]->end_char_style; 
-	$_[0]->{in_C} = 0;
-	}
 sub start_C  
 	{
 	$_[0]->{in_C} = 1;
 	$_[0]->start_char_style( $_[0]->inline_code_char_style );
 	}
+sub end_C   
+	{ 
+	$_[0]->end_char_style; 
+	$_[0]->{in_C} = 0;
+	}
 	
 sub italic_char_style { 'Italic' }
-sub end_I    { $_[0]->end_char_style }
-sub start_I  
-	{	
-	$_[0]->start_char_style( $_[0]->italic_char_style );
-	}
+sub end_I   { $_[0]->end_char_style }
+sub start_I { $_[0]->start_char_style( $_[0]->italic_char_style ); }
 
+sub start_F { $_[0]->end_char_style }
+sub end_F   { $_[0]->start_char_style( $_[0]->italic_char_style ); }
 
 sub start_M
 	{	
