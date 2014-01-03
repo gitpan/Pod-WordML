@@ -1,25 +1,25 @@
---- #YAML:1.0
-name:               Pod-WordML
-version:            0.14
-abstract:           Convert Pod to Microsoft's WordML format
+---
+abstract: "Convert Pod to Microsoft's WordML format"
 author:
-    - brian d foy <bdfoy@cpan.org>
-license:            perl
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
+  - 'brian d foy <bdfoy@cpan.org>'
 build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    Pod::Escapes:      0
-    Pod::PseudoPod:    0
-    Test::LongString:  0
-    Tie::Cycle:        0
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.55_02
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150'
+license: perl
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Pod-WordML
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Pod::Escapes: 0
+  Pod::PseudoPod: 0
+  Test::LongString: 0
+  Tie::Cycle: 0
+version: 0.15
