@@ -22,4 +22,4 @@ requires:
   Pod::PseudoPod: 0
   Test::LongString: 0
   Tie::Cycle: 0
-version: 0.15
+version: 0.16
